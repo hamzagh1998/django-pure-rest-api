@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="style/bootstrap.min.css">
+    <link rel="stylesheet" href="style/style.css">
+    <title>TEST</title>
+  </head>
+  <body>
+    <!-- Post Template -->
+    <template id="post">
+      <ul>
+        <div class="cad">
+          <h1></h1>
+          <div class="card-body">
+            <img src="" alt="IMG">
+            <p></p>
+            <span></span>
+            <button class="btn btn-info">Detail</button>
+          </div>
+        </div>
+      </ul>
+    </template>
+    <!-- Navbar -->
+    <header>
+      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <a id="fetch-btn" class="navbar-brand" href="#">Test</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a id='create-new-post' class="nav-link" href="#">Create new post</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <section>
+      <div class="container">
+        <div class="row">
+          <!-- content -->
+          <div class="col-md-8 offset-md-2 col-lg-8 offset-md-2 post-container">
+            <!-- posts -->
+            <div class="jumbotron">
+              <h1 class="text-center">Simple frontend test</h1>
+              <p class="text-muted text-center pl-4">
+                Make sure that Django local server is running,
+                Then click the button bellow to fetch the data from the server!
+              </p>
+              <div class="text-center">
+                <a class="btn btn-secondary">Connect to Django local Rest Api</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+  <script type="text/javascript" src="scripts/helper/jquery.js"></script>
+  <script type="text/javascript" src="scripts/helper/popper.js"></script>
+  <script type="text/javascript" src="scripts/helper/bootstrap.min.js"></script>
+  <script type="text/javascript" src="scripts/helper/csrf_token.js"></script>
+  <script type="text/javascript" src="scripts/assets.js"></script>
+  <script type="text/javascript" src="scripts/app.js"></script>
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>DJANGO LOCAL SERVER</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="pb-5">
+        <h1 class="text-center">PURE DJANGO REST API</h2>
+        <h2 class="text-muted text-center">Simple Local REST API for Testing and Prototyping</h3>
+      </div>
+      <hr>
+      <h2>Intro:</h2>
+      <p>
+        This project is a local REST API running by Django the popular python web framework,
+        that you can use whenever you need some fake data.
+        It's great for tutorials, testing new libraries, sharing code examples, ...
+      </p>
+        <div class="row">
+          <div class="card">
+            <h3 class="pl-2">Example:</h3>
+            <div class="card-body">
+              <p>
+                First install the requirements
+                <span class="text-secondary">
+                  <strong>python -m pip install -r requiremetns.txt</strong>
+                </span>
+                <br>
+                then run the local server by typing this command
+                in the Command Prompt inside 'src' folder<br>
+                <span class="text-secondary">
+                  <strong>python manage.py runserver</strong>
+                </span>
+              </p>
+              <p>Then Run this code in a console or from any site:</p>
+              <code>
+                <div class="jumbotron">
+                  <h4 class="text-center">
+                    fetch(<a href="{% url 'api:posts' %}">'http://127.0.0.1:8000/api/posts/'</a>)
+                      .then(response => response.json())
+                      .then(json => console.log(json))
+                  </h4>
+                </div>
+              </code>
+              <h2>Cross Site Request Forgery protection:</h2>
+              <p class="text-secondary">Acquiring the token is straightforward:</p>
+              <div class="jumbotron">
+                {% include 'csrf_token.html' %}
+              </div>
+              <p>
+                the above method can be used for AJAX POST requests, it has some inconveniences:
+                you have to remember to pass the CSRF token in as POST data with every POST request.
+                For this reason, there is an alternative method: on each XMLHttpRequest,
+                set a custom X-CSRFToken header (as specified by the CSRF_HEADER_NAME setting)
+                (headers: {'Content-Type': 'application/json', 'X-CSRFToken':csrftoken})
+                to the value of the CSRF token. This is often easier because many JavaScript frameworks
+                provide hooks that allow headers to be set on every request.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 text-center m-3">
+            <h2 class="text-info">Use your own data:</h2>
+            <h4>With This Local Server service, you can have your own local REST server in seconds!</h4>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6 col-lg-6">
+            <h3 class="pl-2">Data Format:</h3>
+            <code>
+              <div class="jumbotron info">
+                <h3>
+                  data = {
+                        "title":"title",<br>
+                        "content":"conten",<br>
+                        "image":"imageURL",<br>
+                    }
+                </h3>
+              </div>
+            </code>
+          </div>
+          <div class="col-md-6 col-lg-6">
+            <h3>Routes:</h3>
+            <div class="jumbotron info pt-4">
+              <p>All HTTP methods are supported.</p>
+              <hr>
+              <p>GET: <a href="{% url 'api:posts' %}" target="_blank">http://127.0.0.1:8000/api/posts/</a></p>
+              <p>POST: http://127.0.0.1:8000/api/posts/</p>
+              <p>GET: http://127.0.0.1:8000/api/posts/1/</p>
+              <p>PUT: http://127.0.0.1:8000/api/posts/1/</p>
+              <p>DELETE: http://127.0.0.1:8000/api/posts/delete/1/</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer>
+      <div class="footer">
+        <p class="text-center">Coded and built by <a href="https://github.com/hamzagh1998" target="_blank">Hamza Ghenimi</a></p>
+        <p class="text-center">Source code available on <a href="https://github.com/hamzagh1998/pure-django-rest-api.git">GitHub</a>|{% now 'Y' %}</p>
+      </div>
+    </footer>
+  </body>
+</html>
